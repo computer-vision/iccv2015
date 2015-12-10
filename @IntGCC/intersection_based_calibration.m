@@ -253,19 +253,6 @@ function [ESTIM_DATA] = gen_RT_from_2x(x_xy,x_z)
   ESTIM_DATA{2}.R2 = Util.gen_R_from_partial(r21,r22,r24,r25,-r27,-r28);
   ESTIM_DATA{2}.t1 = [t11;t12;-t13];
   ESTIM_DATA{2}.t2 = [t21;t22;-t23];
-
-  % Ax = b 側は反転ないはず
-%     % -x_xy + Bx_z
-%     ESTIM_DATA{3}.R1 = Util.gen_R_from_partial(-r11,-r12,-r14,-r15,B*r17,B*r18);
-%     ESTIM_DATA{3}.R2 = Util.gen_R_from_partial(-r21,-r22,-r24,-r25,B*r27,B*r28);
-%     ESTIM_DATA{3}.t1 = [-t11;-t12;B*t13];
-%     ESTIM_DATA{3}.t2 = [-t21;-t22;B*t23];
-%
-%     % -x_xy - Bx_z
-%     ESTIM_DATA{4}.R1 = Util.gen_R_from_partial(-r11,-r12,-r14,-r15,-B*r17,-B*r18);
-%     ESTIM_DATA{4}.R2 = Util.gen_R_from_partial(-r21,-r22,-r24,-r25,-B*r27,-B*r28);
-%     ESTIM_DATA{4}.t1 = [-t11;-t12;-B*t13];
-%     ESTIM_DATA{4}.t2 = [-t21;-t22;-B*t23];
 end
 
 function f = orthogonality_constraints(x, xdata)
