@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>A Linear Generalized Camera Calibration from Three Intersecting Reference Planes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">A Linear Generalized Camera Calibration from Three Intersecting Reference Planes</h1>
+      <h2 class="project-tagline"></h2>
+      <a href="https://github.com/computer-vision/iccv2015" class="btn">View on GitHub</a>
+      <a href="https://github.com/computer-vision/iccv2015/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/computer-vision/iccv2015/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h3>
+<a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h3>
+
+<p>This page provides an implementation of our generalized (or raxel) camera calibration algorithm presented as
+<blockquote>
+  Mai Nishimura, Shohei Nobuhara, Takashi Matsuyama, Shinya Shimizu, and Kensaku Fujii: A Linear Generalized Camera Calibration from Three Intersecting Reference Planes, ICCV2015.
+</blockquote>
+<ul>
+	<li>PDF: (coming soon)</li>
+	<li>Supplemental video: <a href="supplemental.mp4">mp4</a></li>
+	<li><a href="https://www.youtube.com/watch?v=UPBrwRxtE9I&list=PLyYfOWvWYQCGghz38xEroF1IozxzNiWv2&index=4&start=1905&end=1967">Official Spotlights on Youtube</a> (Poster-3A, at 31:45)<br /><iframe width="560" height="315" src="https://www.youtube.com/embed/UPBrwRxtE9I?list=PLyYfOWvWYQCGghz38xEroF1IozxzNiWv2&start=1905&end=1967" frameborder="0" allowfullscreen></iframe></li>
+	<li>bibtex:
+<pre>
+@InProceedings{nishimura15linear,
+  author = {Mai Nishimura and Shohei Nobuhara and Takashi Matsuyama and Shinya Shimizu and Kensaku Fujii},
+  title = {A Linear Generalized Camera Calibration from Three Intersecting Reference Planes},
+  booktitle = {Proc.\ of ICCV},
+  year = 2015,
+}
+</pre></li>
+</ul>
+
+</p>
+<p>The motivation of this project is to estimate the 3D shape of an underwater object in a curved water tank using multiple cameras. To triangulate points in water, each camera pixel must be associated with a corresponding 3D ray in water. This is known as <em>generalized</em> or <em>raxel (ray-pixel)</em> camera model, and this paper provides a linear calibration technique that returns such ray-pixel mappings.</p>
+
+<h3>
+<a id="whatis" class="anchor" href="#whatis" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is provided in the code?</h3>
+
+<p>The code provides an implementation of our linear calibration with a test data. Please read texts in the code for details.</p>
+
+<h3>
+<a id="contact" class="anchor" href="#contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contact</h3>
+
+<p><a href="http://vision.kuee.kyoto-u.ac.jp/~nob/">Shohei NOBUHARA</a></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner">Mai Nishimura, Shohei Nobuhara, Takashi Matsuyama, Shinya Shimizu, and Kensaku Fujii: A Linear Generalized Camera Calibration from Three Intersecting Reference Planes, ICCV2015.</span>
+
+        <span class="site-footer-credits">Copyright &copy; 2015 - Kyoto University</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
