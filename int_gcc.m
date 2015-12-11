@@ -34,8 +34,8 @@ SIMDT = {};
 SIMDT.RESOLUTION.x  = 2048;
 SIMDT.RESOLUTION.y  = 1024;
 SIMDT.SCALE         = 2000;
-SIMDT.R_b2c         = Util.gen_R([0,0,-pi/2]);
-SIMDT.t_b2c         = [ 0 0 0.5 ]';
+% SIMDT.R_b2c         = Util.gen_R([0,0,-pi/2]);
+% SIMDT.t_b2c         = [ 0 0 0.5 ]';
 
 INTERSECTION.USE_POINT_NUM_ON_LINE = 10;
 
@@ -43,12 +43,12 @@ INTERSECTION.USE_POINT_NUM_ON_LINE = 10;
 [SIMDT.Rs, SIMDT.Ts] = Util.gen_postures_for_planes(SIMDT.RESOLUTION.x/SIMDT.SCALE/10);
 
 % generate sample points
-[INTERSECTION.POSs] = IntGCC.gen_samplepos_from_intersection(  SIMDT.Rs, SIMDT.Ts,...
+[INTERSECTION.Ps] = IntGCC.gen_samplepos_from_intersection(  SIMDT.Rs, SIMDT.Ts,...
                                                               {[-SIMDT.RESOLUTION.x/SIMDT.SCALE/2 SIMDT.RESOLUTION.x/SIMDT.SCALE/2],...
                                                               [-SIMDT.RESOLUTION.y/SIMDT.SCALE/2 +SIMDT.RESOLUTION.y/SIMDT.SCALE/2 ]}, ...
                                                               INTERSECTION.USE_POINT_NUM_ON_LINE  );
 
-[RESULT] = IntGCC.intersection_based_calibration(INTERSECTION.POSs);
+[RESULT] = IntGCC.intersection_based_calibration(INTERSECTION.Ps);
 
 % confirm plot
 subplot(1,2,1)
