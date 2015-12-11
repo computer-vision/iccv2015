@@ -34,8 +34,6 @@ SIMDT = {};
 SIMDT.RESOLUTION.x  = 2048;
 SIMDT.RESOLUTION.y  = 1024;
 SIMDT.SCALE         = 2000;
-% SIMDT.R_b2c         = Util.gen_R([0,0,-pi/2]);
-% SIMDT.t_b2c         = [ 0 0 0.5 ]';
 
 INTERSECTION.USE_POINT_NUM_ON_LINE = 10;
 
