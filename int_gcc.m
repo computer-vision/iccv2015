@@ -38,42 +38,43 @@ SIMDT.SCALE         = 2000;
 INTERSECTION.USE_POINT_NUM_ON_LINE = 10;
 
 % generate potures for planes
-[SIMDT.Rs, SIMDT.Ts] = Util.gen_postures_for_planes(SIMDT.RESOLUTION.x/SIMDT.SCALE/10);
+[SIMDT.Rs, SIMDT.Ts] = Util.gen_postures_for_planes(SIMDT.RESOLUTION.x/10);
 
 % generate sample points
-[INTERSECTION.Ps] = IntGCC.gen_samplepos_from_intersection(  SIMDT.Rs, SIMDT.Ts,...
-                                                              {[-SIMDT.RESOLUTION.x/SIMDT.SCALE/2 SIMDT.RESOLUTION.x/SIMDT.SCALE/2],...
-                                                              [-SIMDT.RESOLUTION.y/SIMDT.SCALE/2 +SIMDT.RESOLUTION.y/SIMDT.SCALE/2 ]}, ...
-                                                              INTERSECTION.USE_POINT_NUM_ON_LINE  );
+[INTERSECTION.Ps] = IntGCC.gen_samplepos_from_intersection( SIMDT.Rs,...
+                                                            {SIMDT.Ts{1}/SIMDT.SCALE, SIMDT.Ts{2}/SIMDT.SCALE, SIMDT.Ts{3}/SIMDT.SCALE}, ...
+                                                            {[-SIMDT.RESOLUTION.x/SIMDT.SCALE/2  SIMDT.RESOLUTION.x/SIMDT.SCALE/2], ...
+                                                             [-SIMDT.RESOLUTION.y/SIMDT.SCALE/2 +SIMDT.RESOLUTION.y/SIMDT.SCALE/2 ]}, ...
+                                                            INTERSECTION.USE_POINT_NUM_ON_LINE  );
 
 [RESULT] = IntGCC.intersection_based_calibration(INTERSECTION.Ps);
 
 % confirm plot
 subplot(1,3,1)
-title('board \Phi_0')
 scatter(INTERSECTION.Ps{1}.p0p1(1,:), INTERSECTION.Ps{1}.p0p1(2,:), 'r', 'filled');
 hold on
 scatter(INTERSECTION.Ps{1}.p2p3(1,:), INTERSECTION.Ps{1}.p2p3(2,:), 'r', 'filled');
 legend('p0p1','p2p3')
+title('board \Phi_0')
 
 subplot(1,3,2)
-title('board \Phi_1')
 scatter(INTERSECTION.Ps{2}.p0p1(1,:), INTERSECTION.Ps{2}.p0p1(2,:), 'g', 'filled');
 hold on
 scatter(INTERSECTION.Ps{2}.p4p5(1,:), INTERSECTION.Ps{2}.p4p5(2,:), 'g', 'filled');
 legend('p0p1','p4p5')
+title('board \Phi_1')
 
 subplot(1,3,3)
-title('board \Phi_2')
 scatter(INTERSECTION.Ps{3}.p2p3(1,:), INTERSECTION.Ps{3}.p2p3(2,:), 'b', 'filled');
 hold on
 scatter(INTERSECTION.Ps{3}.p4p5(1,:), INTERSECTION.Ps{3}.p4p5(2,:), 'b', 'filled');
 legend('p2p3','p4p5')
+title('board \Phi_2')
 
 figure
 subplot(1,2,1)
 Util.plot_rectangles_withOF(SIMDT.Rs, SIMDT.Ts, [1 2 3], SIMDT.RESOLUTION.x, SIMDT.RESOLUTION.y, 'rgb', [-SIMDT.RESOLUTION.x/2, -SIMDT.RESOLUTION.y/2])
-Util.plot_rectangles_withOF({eye(3), RESULT{1}.R1.mod, RESULT{1}.R2.mod}, {zeros(3,1), RESULT{1}.t1, RESULT{1}.t2}, [1 2 3], SIMDT.RESOLUTION.x, SIMDT.RESOLUTION.y, 'kkk', [-SIMDT.RESOLUTION.x/2, -SIMDT.RESOLUTION.y/2])
+Util.plot_rectangles_withOF({eye(3), RESULT{1}.R1.mod, RESULT{1}.R2.mod}, {zeros(3,1), RESULT{1}.t1*SIMDT.SCALE, RESULT{1}.t2*SIMDT.SCALE}, [1 2 3], SIMDT.RESOLUTION.x, SIMDT.RESOLUTION.y, 'kkk', [-SIMDT.RESOLUTION.x/2, -SIMDT.RESOLUTION.y/2])
 subplot(1,2,2)
 Util.plot_rectangles_withOF(SIMDT.Rs, SIMDT.Ts, [1 2 3], SIMDT.RESOLUTION.x, SIMDT.RESOLUTION.y, 'rgb', [-SIMDT.RESOLUTION.x/2, -SIMDT.RESOLUTION.y/2])
-Util.plot_rectangles_withOF({eye(3), RESULT{2}.R1.mod, RESULT{2}.R2.mod}, {zeros(3,1), RESULT{2}.t1, RESULT{2}.t2}, [1 2 3], SIMDT.RESOLUTION.x, SIMDT.RESOLUTION.y, 'kkk', [-SIMDT.RESOLUTION.x/2, -SIMDT.RESOLUTION.y/2])
+Util.plot_rectangles_withOF({eye(3), RESULT{2}.R1.mod, RESULT{2}.R2.mod}, {zeros(3,1), RESULT{2}.t1*SIMDT.SCALE, RESULT{2}.t2*SIMDT.SCALE}, [1 2 3], SIMDT.RESOLUTION.x, SIMDT.RESOLUTION.y, 'kkk', [-SIMDT.RESOLUTION.x/2, -SIMDT.RESOLUTION.y/2])
