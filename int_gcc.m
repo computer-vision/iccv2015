@@ -46,7 +46,7 @@ INTERSECTION.USE_POINT_NUM_ON_LINE = 10;
                                                             {[-SIMDT.RESOLUTION.x/SIMDT.SCALE/2  SIMDT.RESOLUTION.x/SIMDT.SCALE/2], ...
                                                              [-SIMDT.RESOLUTION.y/SIMDT.SCALE/2 +SIMDT.RESOLUTION.y/SIMDT.SCALE/2 ]}, ...
                                                             INTERSECTION.USE_POINT_NUM_ON_LINE  );
-
+% Linear Generalized Camera Calibration
 [RESULT] = IntGCC.intersection_based_calibration(INTERSECTION.Ps);
 
 if sign(RESULT{1}.t1(3)) == sign(SIMDT.Ts{2}(3))
