@@ -51,23 +51,23 @@ INTERSECTION.USE_POINT_NUM_ON_LINE = 10;
 
 % confirm plot
 subplot(1,3,1)
-scatter(INTERSECTION.Ps{1}.p0p1(1,:), INTERSECTION.Ps{1}.p0p1(2,:), 'r', 'filled');
+scatter(INTERSECTION.Ps{1}.p0p1(1,:)*SIMDT.SCALE, INTERSECTION.Ps{1}.p0p1(2,:)*SIMDT.SCALE, 'r', 'filled');
 hold on
-scatter(INTERSECTION.Ps{1}.p2p3(1,:), INTERSECTION.Ps{1}.p2p3(2,:), 'r', 'filled');
+scatter(INTERSECTION.Ps{1}.p2p3(1,:)*SIMDT.SCALE, INTERSECTION.Ps{1}.p2p3(2,:)*SIMDT.SCALE, 'r', 'filled');
 legend('p0p1','p2p3')
 title('board \Phi_0')
 
 subplot(1,3,2)
-scatter(INTERSECTION.Ps{2}.p0p1(1,:), INTERSECTION.Ps{2}.p0p1(2,:), 'g', 'filled');
+scatter(INTERSECTION.Ps{2}.p0p1(1,:)*SIMDT.SCALE, INTERSECTION.Ps{2}.p0p1(2,:)*SIMDT.SCALE, 'g', 'filled');
 hold on
-scatter(INTERSECTION.Ps{2}.p4p5(1,:), INTERSECTION.Ps{2}.p4p5(2,:), 'g', 'filled');
+scatter(INTERSECTION.Ps{2}.p4p5(1,:)*SIMDT.SCALE, INTERSECTION.Ps{2}.p4p5(2,:)*SIMDT.SCALE, 'g', 'filled');
 legend('p0p1','p4p5')
 title('board \Phi_1')
 
 subplot(1,3,3)
-scatter(INTERSECTION.Ps{3}.p2p3(1,:), INTERSECTION.Ps{3}.p2p3(2,:), 'b', 'filled');
+scatter(INTERSECTION.Ps{3}.p2p3(1,:)*SIMDT.SCALE, INTERSECTION.Ps{3}.p2p3(2,:)*SIMDT.SCALE, 'b', 'filled');
 hold on
-scatter(INTERSECTION.Ps{3}.p4p5(1,:), INTERSECTION.Ps{3}.p4p5(2,:), 'b', 'filled');
+scatter(INTERSECTION.Ps{3}.p4p5(1,:)*SIMDT.SCALE, INTERSECTION.Ps{3}.p4p5(2,:)*SIMDT.SCALE, 'b', 'filled');
 legend('p2p3','p4p5')
 title('board \Phi_2')
 
