@@ -65,7 +65,7 @@ end
 
 % PCA
 function [ dir_vec_origin, dir_vec ] = get_2dvector_from_points(points)
-  assert(size(points,1) > size(points,2));
+  assert(size(points,1) >= size(points,2));
   % points = [ u v ; u v ; u v]
   covmat = cov(points);
   [V,D] = eig(covmat);
