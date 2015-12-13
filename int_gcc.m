@@ -49,6 +49,28 @@ INTERSECTION.USE_POINT_NUM_ON_LINE = 10;
 [RESULT] = IntGCC.intersection_based_calibration(INTERSECTION.Ps);
 
 % confirm plot
+subplot(1,3,1)
+title('board \Phi_0')
+scatter(INTERSECTION.Ps{1}.p0p1(1,:), INTERSECTION.Ps{1}.p0p1(2,:), 'r', 'filled');
+hold on
+scatter(INTERSECTION.Ps{1}.p2p3(1,:), INTERSECTION.Ps{1}.p2p3(2,:), 'r', 'filled');
+legend('p0p1','p2p3')
+
+subplot(1,3,2)
+title('board \Phi_1')
+scatter(INTERSECTION.Ps{2}.p0p1(1,:), INTERSECTION.Ps{2}.p0p1(2,:), 'g', 'filled');
+hold on
+scatter(INTERSECTION.Ps{2}.p4p5(1,:), INTERSECTION.Ps{2}.p4p5(2,:), 'g', 'filled');
+legend('p0p1','p4p5')
+
+subplot(1,3,3)
+title('board \Phi_2')
+scatter(INTERSECTION.Ps{3}.p2p3(1,:), INTERSECTION.Ps{3}.p2p3(2,:), 'b', 'filled');
+hold on
+scatter(INTERSECTION.Ps{3}.p4p5(1,:), INTERSECTION.Ps{3}.p4p5(2,:), 'b', 'filled');
+legend('p2p3','p4p5')
+
+figure
 subplot(1,2,1)
 Util.plot_rectangles_withOF(SIMDT.Rs, SIMDT.Ts, [1 2 3], SIMDT.RESOLUTION.x, SIMDT.RESOLUTION.y, 'rgb', [-SIMDT.RESOLUTION.x/2, -SIMDT.RESOLUTION.y/2])
 Util.plot_rectangles_withOF({eye(3), RESULT{1}.R1.mod, RESULT{1}.R2.mod}, {zeros(3,1), RESULT{1}.t1, RESULT{1}.t2}, [1 2 3], SIMDT.RESOLUTION.x, SIMDT.RESOLUTION.y, 'kkk', [-SIMDT.RESOLUTION.x/2, -SIMDT.RESOLUTION.y/2])
