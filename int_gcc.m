@@ -60,6 +60,7 @@ subplot(2,3,1)
 scatter(INTERSECTION.Ps{1}.p0p1(1,:)*SIMDT.SCALE, INTERSECTION.Ps{1}.p0p1(2,:)*SIMDT.SCALE, 'r', 'filled');
 hold on
 scatter(INTERSECTION.Ps{1}.p2p3(1,:)*SIMDT.SCALE, INTERSECTION.Ps{1}.p2p3(2,:)*SIMDT.SCALE, 'r', 'filled');
+Util.plot_rectangles_withOF({eye(3)}, {zeros(3,1)}, [1], SIMDT.RESOLUTION.x, SIMDT.RESOLUTION.y, 'r', [-SIMDT.RESOLUTION.x/2, -SIMDT.RESOLUTION.y/2])
 legend('p0p1','p2p3')
 title('board \Phi_0')
 
@@ -67,6 +68,7 @@ subplot(2,3,2)
 scatter(INTERSECTION.Ps{2}.p0p1(1,:)*SIMDT.SCALE, INTERSECTION.Ps{2}.p0p1(2,:)*SIMDT.SCALE, 'g', 'filled');
 hold on
 scatter(INTERSECTION.Ps{2}.p4p5(1,:)*SIMDT.SCALE, INTERSECTION.Ps{2}.p4p5(2,:)*SIMDT.SCALE, 'g', 'filled');
+Util.plot_rectangles_withOF({eye(3)}, {zeros(3,1)}, [1], SIMDT.RESOLUTION.x, SIMDT.RESOLUTION.y, 'g', [-SIMDT.RESOLUTION.x/2, -SIMDT.RESOLUTION.y/2])
 legend('p0p1','p4p5')
 title('board \Phi_1')
 
@@ -74,6 +76,7 @@ subplot(2,3,3)
 scatter(INTERSECTION.Ps{3}.p2p3(1,:)*SIMDT.SCALE, INTERSECTION.Ps{3}.p2p3(2,:)*SIMDT.SCALE, 'b', 'filled');
 hold on
 scatter(INTERSECTION.Ps{3}.p4p5(1,:)*SIMDT.SCALE, INTERSECTION.Ps{3}.p4p5(2,:)*SIMDT.SCALE, 'b', 'filled');
+Util.plot_rectangles_withOF({eye(3)}, {zeros(3,1)}, [1], SIMDT.RESOLUTION.x, SIMDT.RESOLUTION.y, 'b', [-SIMDT.RESOLUTION.x/2, -SIMDT.RESOLUTION.y/2])
 legend('p2p3','p4p5')
 title('board \Phi_2')
 
